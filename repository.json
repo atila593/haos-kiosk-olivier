@@ -1,0 +1,16 @@
+{
+  "name": "Dépôt Kiosk d'Olivier",
+  "url": "https://github.com/VOTRE_NOM_UTILISATEUR/haos-kiosk-olivier",
+  "maintainer": "Olivier",
+  "addons": [
+    {
+      "slug": "kiosk", // Le nom du DOSSIER !
+      "conditions": [
+        "allow-armhf",
+        "allow-armv7",
+        "allow-aarch64",
+        "allow-amd64"
+      ]
+    }
+  ]
+}
