@@ -1,10 +1,10 @@
 {
-  "name": "Dépôt Kiosk d'Olivier",
+  "name": "Depot Kiosk Olivier",
   "url": "https://github.com/atila593/haos-kiosk-olivier",
   "maintainer": "Olivier",
   "addons": [
     {
-      "slug": "kiosk", // Le nom du DOSSIER !
+      "slug": "kiosk",
       "conditions": [
         "allow-armhf",
         "allow-armv7",
