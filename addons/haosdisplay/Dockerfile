@@ -1,6 +1,7 @@
-# Base image officielle Home Assistant (Utilise la variable {arch})
 # Assurez-vous d'utiliser la bonne image de base pour votre OS (debian ou alpine)
-FROM ghcr.io/home-assistant/{ARCH}-base:latest
+# Correction 1: Définit ARCH comme argument pour contourner l'erreur "invalid reference format: must be lowercase"
+ARG ARCH
+FROM ghcr.io/home-assistant/${ARCH}-base:latest
 
 # Installer Firefox et codecs vidéo
 RUN apt-get update && \
@@ -21,7 +22,6 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copier le script run.sh
-# Note : run.sh doit être à la racine de votre dossier addons/haosdisplayol/
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
