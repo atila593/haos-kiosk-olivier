@@ -1,7 +1,7 @@
 {
   "name": "HAOS Kiosk Mod - Firefox",
   "version": "1.0.0",
-  "slug": "haos_kiosk_mod",
+  "slug": "haosdisplay",
   "description": "Addon HAOSKiosk personnalisé avec Firefox et support vidéo",
   "arch": ["amd64", "armv7", "aarch64"],
   "startup": "application",
