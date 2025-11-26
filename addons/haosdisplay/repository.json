@@ -4,8 +4,8 @@
   "maintainer": "Olivier",
   "addons": [
     {
-      "name": "HAOS Kiosk Olivier",
-      "slug": "haosdisplay",
+      "name": "HAOS Kiosk OL - Firefox",
+      "slug": "haosdisplayol",
       "description": "Votre Add-on Kiosk personnalisé pour Home Assistant.",
       "url": "https://github.com/atila593/haos-kiosk-olivier",
       "version": "1.0.0",
