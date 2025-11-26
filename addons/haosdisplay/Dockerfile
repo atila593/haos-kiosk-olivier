@@ -1,5 +1,6 @@
-# Base image officielle Home Assistant
-FROM ghcr.io/home-assistant/amd64-base:latest
+# Base image officielle Home Assistant (Utilise la variable {arch})
+# Assurez-vous d'utiliser la bonne image de base pour votre OS (debian ou alpine)
+FROM ghcr.io/home-assistant/{ARCH}-base:latest
 
 # Installer Firefox et codecs vidéo
 RUN apt-get update && \
@@ -20,11 +21,9 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copier le script run.sh
+# Note : run.sh doit être à la racine de votre dossier addons/haosdisplayol/
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
-
-# Dossier de configuration de HAOS Kiosk
-COPY config.json /data/options.json
 
 # Définir le script par défaut
 CMD ["/run.sh"]
