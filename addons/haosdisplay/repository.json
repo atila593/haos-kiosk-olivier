@@ -1,20 +1,4 @@
 {
   "name": "Depot Kiosk Olivier",
-  "url": "https://github.com/atila593/haos-kiosk-olivier",
-  "maintainer": "Olivier",
-  "addons": [
-    {
-      "name": "HAOS Kiosk OL - Firefox",
-      "slug": "haosdisplayol",
-      "description": "Votre Add-on Kiosk personnalise.",
-      "url": "https://github.com/atila593/haos-kiosk-olivier",
-      "version": "1.0.0",
-      "arch": [
-        "aarch64",
-        "amd64",
-        "armv7",
-        "i386"
-      ]
-    }
-  ]
+  "maintainer": "Olivier"
 }
