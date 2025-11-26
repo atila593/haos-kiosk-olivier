@@ -1,7 +1,6 @@
-# Assurez-vous d'utiliser la bonne image de base pour votre OS (debian ou alpine)
-# Correction 1: Définit ARCH comme argument pour contourner l'erreur "invalid reference format: must be lowercase"
+# Utilise la variable standard BUILD_FROM fournie par le Superviseur
 ARG BUILD_FROM
-FROM ghcr.io/home-assistant/${ARCH}-base:latest
+FROM ${BUILD_FROM}
 
 # Installer Firefox et codecs vidéo
 RUN apt-get update && \
