@@ -1,12 +1,12 @@
 {
-  "name": "Dépôt Kiosk Olivier",
+  "name": "Depot Kiosk Olivier",
   "url": "https://github.com/atila593/haos-kiosk-olivier",
   "maintainer": "Olivier",
   "addons": [
     {
       "name": "HAOS Kiosk OL - Firefox",
       "slug": "haosdisplayol",
-      "description": "Votre Add-on Kiosk personnalisé pour Home Assistant.",
+      "description": "Votre Add-on Kiosk personnalise.",
       "url": "https://github.com/atila593/haos-kiosk-olivier",
       "version": "1.0.0",
       "arch": [
