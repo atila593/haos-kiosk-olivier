@@ -58,5 +58,8 @@
     "8080/tcp": 8080
   },
   "host_network": true,
-  "privileged": true
+  "privileged": [
+    "NET_ADMIN",
+    "SYS_ADMIN"
+  ]
 }
