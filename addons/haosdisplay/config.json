@@ -1,7 +1,7 @@
 {
-  "name": "HAOS Kiosk OL - Firefox",
-  "version": "1.0.0",
-  "slug": "haosdisplayol",
+  "name": "HAOS Kiosk OL (avec Codecs Vidéo)",
+  "version": "1.0.1-codec",
+  "slug": "haosdisplayol-codec",
   "description": "Addon HAOSKiosk personnalisé avec Firefox et support vidéo",
   "arch": [
     "amd64",
