@@ -84,5 +84,5 @@ RUN mkdir -p /etc/services.d/run.sh \
 # -------------------------------
 # Entrypoint via s6-overlay
 # -------------------------------
-ENTRYPOINT ["/init"]
+CMD ["/run.sh"]
 
