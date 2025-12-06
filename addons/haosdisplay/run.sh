@@ -2,7 +2,7 @@
 set -e
 
 # Log de démarrage pour vérifier que le script tourne
-echo "RUN.SH STARTED at $(date)" >> /tmp/run_test.log
+echo "RUN.SH STARTED at $(date)"
 
 # Optionnel : patch clavier ou X11
 setxkbmap fr
