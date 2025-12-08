@@ -1,0 +1,70 @@
+configuration:
+  ha_url:
+    name: URL Home Assistant
+    description: L'URL complète de votre instance Home Assistant (par exemple, http://homeassistant.local:8123).
+  ha_dashboard:
+    name: Tableau de bord par défaut
+    description: Le chemin d'accès au tableau de bord à charger (par exemple, /lovelace-kiosk/accueil).
+  ha_username:
+    name: Nom d'utilisateur HA
+    description: Nom d'utilisateur pour la connexion (si votre tableau de bord n'est pas public).
+  ha_password:
+    name: Mot de passe HA
+    description: Mot de passe pour la connexion.
+  login_delay:
+    name: Délai de connexion (secondes)
+    description: Délai d'attente après le chargement du navigateur avant de tenter la connexion.
+  zoom_level:
+    name: Niveau de Zoom (%)
+    description: Niveau de zoom par défaut pour le navigateur (par exemple, 80).
+  browser_refresh:
+    name: Actualisation du navigateur (minutes)
+    description: Intervalle pour redémarrer le navigateur afin de prévenir les fuites de mémoire (0 pour désactiver).
+  screen_timeout:
+    name: Timeout de l'écran (secondes)
+    description: Délai avant l'extinction de l'écran (0 pour désactiver).
+  output_number:
+    name: Numéro de sortie d'affichage
+    description: Spécifie le moniteur à utiliser si plusieurs sont connectés (généralement 0).
+  dark_mode:
+    name: Thème Sombre
+    description: Active le thème sombre pour Luakit.
+  ha_sidebar:
+    name: Masquer la barre latérale HA
+    description: Masque la barre latérale de Home Assistant.
+  rotate_display:
+    name: Rotation de l'affichage
+    description: Angle de rotation de l'écran (0, 90, 180, 270).
+  map_touch_inputs:
+    name: Mapper les entrées tactiles
+    description: Si l'écran est tourné, cela corrige le mappage des entrées tactiles.
+  cursor_timeout:
+    name: Timeout du curseur (secondes)
+    description: Délai avant le masquage automatique du curseur (0 pour désactiver).
+  keyboard_layout:
+    name: Disposition du clavier
+    description: Disposition du clavier pour le système X (par exemple, 'fr' pour Français).
+  onscreen_keyboard:
+    name: Clavier virtuel (Onboard)
+    description: Active le clavier virtuel Onboard.
+  save_onscreen_config:
+    name: Sauvegarder la configuration du clavier
+    description: Sauvegarde les paramètres du clavier Onboard entre les redémarrages.
+  xorg_conf:
+    name: Utiliser xorg.conf personnalisé
+    description: Définit un fichier xorg.conf personnalisé.
+  xorg_append_replace:
+    name: Mode de modification xorg.conf
+    description: 'Mode : "append" (ajouter) ou "replace" (remplacer) pour le xorg.conf.d.'
+  rest_port:
+    name: Port de l'API REST
+    description: Le port sur lequel l'API REST de l'add-on écoute.
+  rest_bearer_token:
+    name: Jeton Bearer de l'API REST
+    description: Jeton à utiliser pour sécuriser l'API REST (nécessaire si le port est ouvert).
+  allow_user_commands:
+    name: Autoriser les commandes utilisateur
+    description: Permet d'exécuter des commandes système via l'API REST (ATTENTION : risque de sécurité).
+  debug_mode:
+    name: Mode Debug
+    description: Active le mode de débogage pour un diagnostic détaillé.
