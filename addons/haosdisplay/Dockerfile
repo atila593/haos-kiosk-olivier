@@ -60,7 +60,7 @@ ENV DISPLAY=:0
 # Copy over 'xorg.conf.default' and lua 'userconf.lua' file
 COPY xorg.conf.default /etc/X11/
 COPY userconf.lua /root/.config/luakit/
-COPY translations/*.yaml /translations/
+# COPY translations/*.yaml /translations/
 
 COPY run.sh /
 RUN chmod a+x /run.sh
