@@ -72,4 +72,3 @@ RUN pip install --no-cache-dir  --break-system-packages aiohttp #Required for re
 COPY unique_instance.patch /usr/share/luakit/lib
 RUN patch -p2 /usr/share/luakit/lib/unique_instance.lua < /usr/share/luakit/lib/unique_instance.patch
 
-CMD ["/run.sh"]
