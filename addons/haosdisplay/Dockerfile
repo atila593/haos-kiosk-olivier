@@ -1,22 +1,21 @@
 ################################################################################
 # Add-on: HAOS Kiosk Display (haoskiosk)
 # File: Dockerfile
-# Version: 1.1.1 (FINAL for HA)
+# Version: 1.1.1
 # Copyright Jeff Kosowsky
-# Date: December 2025
+# Date: September 2025
 ################################################################################
 
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# -------------------------------
-# Installer les dépendances
-# -------------------------------
+# Install Luakit and necessary dependencies
 RUN apk update && apk add --no-cache \
     xorg-server \
     xf86-video-modesetting \
     xf86-input-libinput \
     libinput \
+#   libinput-tools \
     udev \
     libinput-udev \
     libevdev \
@@ -26,6 +25,16 @@ RUN apk update && apk add --no-cache \
     libdrm \
     libxkbcommon \
     ttf-dejavu \
+    \
+    # >>> AJOUT DES PLUGINS GSTREAMER ET CODECS VIDÉO <<<
+    # Nécessaire pour les formats courants (H.264, VP9, etc.)
+    gst-plugins-base \
+    gst-plugins-good \
+    gst-plugins-bad \
+    gst-plugins-ugly \
+    gst-libav \
+    # <<< FIN DE L'AJOUT >>>
+    \
     util-linux \
     xdotool \
     xinput \
@@ -34,41 +43,33 @@ RUN apk update && apk add --no-cache \
     unclutter-xfixes \
     setxkbmap \
     openbox \
+#    xfce4-settings \
+#    xfwm4 \
+#    xfce4-session \
     onboard \
     py3-pip \
     python3-tkinter \
     patch \
     bash \
-    gstreamer \
-    gst-plugins-base \
-    gst-plugins-good \
-    gst-plugins-ugly \
-    gst-plugins-bad \
     && apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/v3.21/community luakit=2.3.6-r0 \
     && rm -rf /var/cache/apk/*
 
-# -------------------------------
-# Variables d'environnement
-# -------------------------------
+# Set the display variable
 ENV DISPLAY=:0
 
-# -------------------------------
-# Copier les fichiers
-# -------------------------------
+# Copy over 'xorg.conf.default' and lua 'userconf.lua' file
 COPY xorg.conf.default /etc/X11/
 COPY userconf.lua /root/.config/luakit/
-COPY run.sh /run.sh
+COPY translations/*.yaml /translations/
+
+COPY run.sh /
+RUN chmod a+x /run.sh
+
 COPY toggle_keyboard.py rest_server.py /
+RUN pip install --no-cache-dir  --break-system-packages aiohttp #Required for rest_server.py
+
+# Need to patch 'unique_instance.lua' so that new instance urls overwrite active url rather than add new tab
 COPY unique_instance.patch /usr/share/luakit/lib
+RUN patch -p2 /usr/share/luakit/lib/unique_instance.lua < /usr/share/luakit/lib/unique_instance.patch
 
-# -------------------------------
-# Rendre les scripts exécutables et patcher Luakit
-# -------------------------------
-RUN chmod a+x /run.sh \
-    && patch -p2 /usr/share/luakit/lib/unique_instance.lua < /usr/share/luakit/lib/unique_instance.patch \
-    && pip install --no-cache-dir --break-system-packages aiohttp
-
-# -------------------------------
-# Lancer le script principal
-# -------------------------------
 CMD ["/run.sh"]
